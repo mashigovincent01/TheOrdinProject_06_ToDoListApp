@@ -1,7 +1,7 @@
 import task from './task';
 import {isAfter} from "date-fns";
 const project = (name)=>{
-    let projectName = n;
+    let projectName = name;
     let tasks = [];
     const getProjectName = ()=> projectName;
     const getTasks = ()=> tasks;
@@ -21,6 +21,7 @@ const project = (name)=>{
         
     }
     const printTasks = ()=>{
+        console.log(projectName);
         tasks.forEach((task)=>{
             task.printTask();
         });
