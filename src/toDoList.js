@@ -36,12 +36,26 @@ const toDoList = ()=>{
         for(let i = 0; i < projects.length; i++){
             if(projects[i].getProjectName() === projectName){
                 projects[i].removeTask(index);
+                return;
             }
-            return;
+            
+        }
+    }
+    const removeProject = (projectName)=>{
+        for(let i = 0; i < projects.length; i++){
+            if(projects[i].getProjectName() === projectName){
+                projects.splice(i, 1);
+                return;
+            }
+            
         }
     }
     const printProjects =()=>{
-        console.log(projects)
+        projects.forEach((project)=>{
+            console.log("#############################################");
+            project.printTasks();
+            console.log("##############################################");
+        });
     }
     return {
         addProject,
@@ -50,6 +64,7 @@ const toDoList = ()=>{
         printProjects,
         addTask,
         removeTask,
+        removeProject,
     }
 }
 
