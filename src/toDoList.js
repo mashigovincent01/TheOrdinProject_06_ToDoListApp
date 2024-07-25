@@ -34,7 +34,9 @@ const toDoList = ()=>{
     }
     const removeTask = (projectName, index)=>{
         for(let i = 0; i < projects.length; i++){
-            projects[i].removeTask(index);
+            if(projects[i].getProjectName() === projectName){
+                projects[i].removeTask(index);
+            }
             return;
         }
     }

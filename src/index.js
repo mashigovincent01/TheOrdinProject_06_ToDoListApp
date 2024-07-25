@@ -8,7 +8,6 @@ document.querySelector('h1').classList.add('hello');
 const myProject = project("school");
 
 // Create new task instances
-let task1 = task();
 const dates = [
     new Date(2024, 8, 2),
     new Date(2025, 1, 11),
@@ -16,28 +15,24 @@ const dates = [
     new Date(2024, 8, 2),
     new Date(2025, 1, 11),
     new Date(2024, 7, 27),
+    new Date(2026, 8, 10),
   ];
-task1.editTask("Task 1", "Important task", dates[0], "Hello there", false);
-
-
-let task2 = task();
-task2.editTask("Task 2", "Another task", dates[1], "General notes", false);
-myProject.addTask(task2);
-
-let task3 = task();
-task3.editTask("Task 3", "Yet another task", dates[2], "Additional notes", false);
-myProject.addTask(task3);
-
-const work = project('Work');
-let task4 = task()
-task4.editTask("Task 4", "Yet another task", dates[3], "Additional notes", false);
-work.addTask(task4);
-
-let task5 = task()
-task5.editTask("Task 4", "Yet another task", dates[3], "Additional notes", false);
-work.addTask(task5);
-
 const myTodoList = toDoList();
+myTodoList.addTask('Default', task("Task 1", "aaa", dates[0], "aaaa", false));
+myTodoList.addTask('Default', task("Task 2", "bbb", dates[1], "bbbb", false));
+myTodoList.addTask('Default', task("Task 3", "ccc", dates[2], "cccc", false));
+
+
+myTodoList.addTask('School', task("Task 3", "aaa", dates[3], "aaaa", false));
+myTodoList.addTask('School', task("Task 4", "bbb", dates[4], "bbbb", false));
+myTodoList.addTask('School', task("Task 5", "ccc", dates[5], "cccc", false));
+
+
+myTodoList.addTask('Work', task("Task 6", "aaa", dates[1], "aaaa", false));
+myTodoList.addTask('Work', task("Task 7", "bbb", dates[5], "bbbb", false));
+myTodoList.addTask('Work', task("Task 8", "ccc", dates[3], "cccc", false));
+
+console.log(myTodoList.getProjects()[0].printTasks());
 
 
 
