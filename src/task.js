@@ -6,22 +6,20 @@ const task = (tit, desc, dueDat , note, don)=>{
     let notes = note
     let complete = don;
 
-    const editTask = (ti, des, dueDate , not, done)=>{
+    const editTask = (ti, des, dueDate , done)=>{
         title = ti;
         description = des;
         date = dueDate;
-        notes = not;
         complete = done;
     }
     const getTitle = ()=> title;
     const getDescription = ()=> description
     const getDate = ()=> date;
-    const getNotes = ()=> notes;
     const getComplete = ()=> complete;
     const printTask = ()=>{
         console.log(
             {
-                title, description, date, notes, complete
+                title, description, date, complete
             }
         );
     }
@@ -32,7 +30,6 @@ const task = (tit, desc, dueDat , note, don)=>{
         getTitle,
         getDate,
         getComplete,
-        getNotes,
         getDescription
     }
 
