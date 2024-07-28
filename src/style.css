@@ -1,3 +1,52 @@
-.hello{
+body{
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+header{
+    background-color: blue;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+footer{
+    background-color: grey;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#side-bar{
+    background-color: orange;
+}
+#projects{
     background-color: red;
+}
+main{
+    display: grid;
+    min-height: calc(100vh - 150px);
+    grid-template-columns: 200px auto;
+
+}
+#projects div{
+    display: flex;
+    justify-content: space-around;
+}
+
+#add-project{
+    border-radius: 100%;
+    border: none;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+}
+.add-project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
 }
