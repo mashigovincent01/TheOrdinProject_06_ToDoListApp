@@ -6,10 +6,11 @@ const toDoList = ()=>{
     
     const addProject = (projectName)=>{
         if(!exists(projectName)){
+            console.log("Hello there", projectName);
             projects.push(project(projectName));
         }
     }
-    
+
     const getProjects = ()=> projects;
     const getTasks = (projectName)=>{
         for(let i = 0; i < projects.length; i++){
@@ -42,6 +43,14 @@ const toDoList = ()=>{
             
         }
     }
+
+    const printProjects =()=>{
+        projects.forEach((project)=>{
+            console.log("#############################################");
+            project.printTasks();
+            console.log("##############################################");
+        });
+    }
     const removeProject = (projectName)=>{
         for(let i = 0; i < projects.length; i++){
             if(projects[i].getProjectName() === projectName){
@@ -51,13 +60,7 @@ const toDoList = ()=>{
             
         }
     }
-    const printProjects =()=>{
-        projects.forEach((project)=>{
-            console.log("#############################################");
-            project.printTasks();
-            console.log("##############################################");
-        });
-    }
+    
     return {
         addProject,
         getProjects,
