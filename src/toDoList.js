@@ -9,6 +9,7 @@ const toDoList = ()=>{
             projects.push(project(projectName));
         }
     }
+    
     const getProjects = ()=> projects;
     const getTasks = (projectName)=>{
         for(let i = 0; i < projects.length; i++){
