@@ -91,3 +91,9 @@ main{
 .delete-icon:hover{
     cursor: pointer;
 }
+
+#tasks{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

@@ -4,7 +4,7 @@ import project from './project';
 import toDoList from './toDoList';
 import taskCard from './taskCard';
 import projectCard from './projectCard';
-import {updateProjects} from './update';
+import {updateProjects, updateTasks} from './update';
 
 
 const myTodoList = toDoList();
@@ -64,8 +64,9 @@ myTodoList.printProjects();
 
 
 //console.log(taskCard(2, 2).innerHTML);
-console.log(myTodoList.getProjects());
-tasks.appendChild(taskCard(myTodoList.getProjects()[0].getTasks()[0], 0));
+//console.log(myTodoList.getProjects());
+//tasks.appendChild(taskCard(myTodoList.getProjects()[0].getTasks()[0], 0));
 // console.log(myTodoList.getProjects()[0])
 // projects.appendChild(projectCard(myTodoList.getProjects()[0], 0));
 updateProjects(myTodoList);
+updateTasks(myTodoList, 'School');
