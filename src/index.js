@@ -2,11 +2,14 @@ import style from './style.css';
 import task from './task';
 import project from './project';
 import toDoList from './toDoList';
+import taskCard from './taskCard';
 
 
 const myTodoList = toDoList();
 const newProject = document.querySelector("#new-project");
 const addProjectDialog = document.querySelector("#add-project-dialog");
+const tasks = document.querySelector("#tasks");
+
 
 function handleNewProject(){
   addProjectDialog.showModal();
@@ -36,16 +39,16 @@ const dates = [
     new Date(2026, 8, 10),
   ];
 
-myTodoList.addTask('Default', task("Task 1", "aaa", dates[0],  false));
-myTodoList.addTask('Default', task("Task 2", "bbb", dates[1],  false));
-myTodoList.addTask('Default', task("Task 3", "ccc", dates[2],  false));
-
-myTodoList.addProject("School");
-
-myTodoList.addTask('School', task("Task 3", "aaa", dates[3],  false));
-myTodoList.addTask('School', task("Task 4", "bbb", dates[4],  false));
-myTodoList.addTask('School', task("Task 5", "ccc", dates[5], false));
-
+  myTodoList.addTask('Default', task("Grocery Shopping", "Buy groceries for the week", dates[0], false));
+  myTodoList.addTask('Default', task("Finish Homework", "Complete math and science assignments", dates[1], false));
+  myTodoList.addTask('Default', task("Clean House", "Tidy up the living room and kitchen", dates[2], false));
+  
+  myTodoList.addProject("School");
+  
+  myTodoList.addTask('School', task("Submit Project", "Submit the final version of the science project", dates[3], false));
+  myTodoList.addTask('School', task("Prepare for Exam", "Revise notes and practice past papers", dates[4], false));
+  myTodoList.addTask('School', task("Attend Study Group", "Join the study group session for biology", dates[5], false));
+  
 myTodoList.addProject("Work")
 
 myTodoList.addTask('Work', task("Task 6", "aaa", dates[1], false));
@@ -58,3 +61,6 @@ myTodoList.printProjects();
 
 
 
+//console.log(taskCard(2, 2).innerHTML);
+console.log(myTodoList.getProjects());
+tasks.appendChild(taskCard(myTodoList.getProjects()[0].getTasks()[0], 0));

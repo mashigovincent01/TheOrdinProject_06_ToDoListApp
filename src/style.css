@@ -56,13 +56,18 @@ main{
     justify-content: space-around;
 }
 
-#add-project{
+#new-project{
     border-radius: 100%;
     border: none;
     font-size: 30px;
     width: 40px;
     height: 40px;
+  
 }
+#new-project:hover{
+    cursor: pointer;
+}
+
 .add-project{
     display: flex;
     justify-content: center;
@@ -78,4 +83,11 @@ main{
 #add-project-dialog{
     border-radius: 10px;
     padding: 20px;
+}
+.edit-icon:hover{
+    cursor:pointer;
+    
+}
+.delete-icon:hover{
+    cursor: pointer;
 }
