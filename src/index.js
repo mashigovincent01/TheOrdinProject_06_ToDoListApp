@@ -3,13 +3,15 @@ import task from './task';
 import project from './project';
 import toDoList from './toDoList';
 import taskCard from './taskCard';
+import projectCard from './projectCard';
+import {updateProjects} from './update';
 
 
 const myTodoList = toDoList();
 const newProject = document.querySelector("#new-project");
 const addProjectDialog = document.querySelector("#add-project-dialog");
 const tasks = document.querySelector("#tasks");
-
+const projects = document.querySelector("#projects");
 
 function handleNewProject(){
   addProjectDialog.showModal();
@@ -64,3 +66,6 @@ myTodoList.printProjects();
 //console.log(taskCard(2, 2).innerHTML);
 console.log(myTodoList.getProjects());
 tasks.appendChild(taskCard(myTodoList.getProjects()[0].getTasks()[0], 0));
+// console.log(myTodoList.getProjects()[0])
+// projects.appendChild(projectCard(myTodoList.getProjects()[0], 0));
+updateProjects(myTodoList);
