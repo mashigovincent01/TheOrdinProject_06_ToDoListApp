@@ -22,7 +22,8 @@ function updateEditIcons(){
     editIcons.forEach((icon)=>{
         icon.addEventListener("click", (e)=>{
             
-            alert("Hello world" + " " + e.target.id);
+            alert("Hello world" + " " + e.currentTarget.id);
+            
         });
     });
 }
@@ -32,7 +33,8 @@ function updateDeleteIcons(){
     deleteIcons.forEach((icon)=>{
         icon.addEventListener("click", (e)=>{
             
-            alert("Hello world" + " " + e.target.id);
+            alert("Hello world" + " " + e.currentTarget.id);
+            
         });
     });
 }
