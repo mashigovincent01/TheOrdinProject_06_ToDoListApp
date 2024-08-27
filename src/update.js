@@ -38,6 +38,30 @@ function updateDeleteIcons(){
         });
     });
 }
+function updateDeleteProjectIcons(){
+    const deleteProjectIcons = document.querySelectorAll(".delete-project");
+    console.log(deleteProjectIcons);
+    deleteProjectIcons.forEach((icon)=>{
+        icon.addEventListener("click", (e)=>{
+            
+            alert("Hello world" + " " + e.currentTarget.id);
+            
+        });
+    });
+}
+
+function updateDisplayProjectIcons(){
+    const displayProjectIcons = document.querySelectorAll(".display-project");
+    console.log(displayProjectIcons);
+    displayProjectIcons.forEach((icon)=>{
+        icon.addEventListener("click", (e)=>{
+            
+            alert("Hello world" + " " + e.currentTarget.id);
+            
+        });
+    });
+}
+
 const updateProjects = (todoList)=>{
     projects.innerHTML = "";
     const myProjects = todoList.getProjects();
@@ -45,6 +69,8 @@ const updateProjects = (todoList)=>{
     for(let i = 0; i < myProjects.length; i++){
         projects.appendChild(projectCard(myProjects[i], i));
     }
+    updateDeleteProjectIcons();
+    updateDisplayProjectIcons();
 }
 
 export {updateTasks, updateProjects}

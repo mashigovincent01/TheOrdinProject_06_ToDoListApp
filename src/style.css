@@ -6,6 +6,10 @@ body{
     box-sizing: border-box;
 }
 
+.display-project{
+    display: flex;
+    gap: 20px;
+}
 header{
     background-color: blue;
     height: 100px;
@@ -56,13 +60,20 @@ main{
     justify-content: space-around;
 }
 
-#new-project{
+#new-project, #new-task{
     border-radius: 100%;
     border: none;
     font-size: 30px;
     width: 40px;
     height: 40px;
   
+}
+
+#new-task{
+    
+    background-color: lightgrey;
+    /* margin-top: 40px; */
+    margin-left: 10px;
 }
 #new-project:hover{
     cursor: pointer;
@@ -71,6 +82,13 @@ main{
 .add-project{
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+.add-task{
+    display: flex;
+    /* justify-content: center; */
     align-items: center;
     gap: 10px;
     margin-top: 30px;
