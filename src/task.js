@@ -1,9 +1,9 @@
 //This is a factory function to create tasks
-const task = (tit, desc, dueDat , note, don)=>{
+const task = (tit, desc, dueDat, don)=>{
     let title = tit;
     let description = desc
     let date = dueDat
-    let notes = note
+    //let notes = note
     let complete = don;
 
     const editTask = (ti, des, dueDate , done)=>{

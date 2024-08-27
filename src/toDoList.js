@@ -6,7 +6,7 @@ const toDoList = ()=>{
     
     const addProject = (projectName)=>{
         if(!exists(projectName)){
-            console.log("Hello there", projectName);
+            
             projects.push(project(projectName));
         }
     }
