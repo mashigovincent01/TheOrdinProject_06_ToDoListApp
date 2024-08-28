@@ -43,13 +43,13 @@ const dates = [
   ];
 const storage = toDoListStorage()
 storage.getToDoList();
-console.log(storage);
+///console.log(storage);
   myTodoList.addTask('Default', task("Grocery Shopping", "Buy groceries for the week", dates[0], false));
   myTodoList.addTask('Default', task("Finish Homework", "Complete math and science assignments", dates[1], false));
   myTodoList.addTask('Default', task("Clean House", "Tidy up the living room and kitchen", dates[2], false));
   storage.updateToDoList(myTodoList);
   let res = storage.getToDoList();
-  res.printProjects();
+  //res.printProjects();
   myTodoList.addProject("School");
   
   myTodoList.addTask('School', task("Submit Project", "Submit the final version of the science project", dates[3], false));
@@ -63,9 +63,9 @@ myTodoList.addTask('Work', task("Task 7", "bbb", dates[5],  false));
 myTodoList.addTask('Work', task("Task 8", "ccc", dates[3],  false));
 storage.updateToDoList(myTodoList);
 res = storage.getToDoList();
-  res.printProjects();
+ // res.printProjects();
 
-myTodoList.printProjects();
+//myTodoList.printProjects();
 
 
 

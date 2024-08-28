@@ -11,26 +11,29 @@ const toDoListStorage = () => {
             let parsedProjects = JSON.parse(storage);
             mytoDoList = toDoList();
             parsedProjects.forEach(projectData => {
-                
+                //console.log("PROJECT NAME " + projectData.name)
                 const newProject = project(projectData.name);
+                mytoDoList.addProject(projectData.name);
+                console.log(projectData.tasks);
                 projectData.tasks.forEach(taskData => {
                     const newTask = task(
                         taskData.title, 
                         taskData.description, 
                         new Date(taskData.date), 
-                        taskData.notes,
+                       // taskData.notes,
                         taskData.complete
                     );
                     newProject.addTask(newTask);
+                    mytoDoList.addTask(projectData.name, newTask);
                 });
-                mytoDoList.addProject(newProject);
+                
             });
         } else {
             mytoDoList = toDoList();
         }
 
         console.log("GET TODOLIST");
-        console.log(mytoDoList);
+        mytoDoList.printProjects();
         return mytoDoList;
     };
 
