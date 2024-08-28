@@ -2,7 +2,7 @@ import project from "./project";
 
 const toDoList = ()=>{
     let projects = [];
-    projects.push(project('Default'));
+    //projects.push(project('Default'));
     
     const addProject = (projectName)=>{
         if(!exists(projectName)){
@@ -52,12 +52,19 @@ const toDoList = ()=>{
         });
     }
     const removeProject = (projectName)=>{
-        for(let i = 0; i < projects.length; i++){
-            if(projects[i].getProjectName() === projectName){
-                projects.splice(i, 1);
-                return;
+        if(projects.length === 1){
+            if(projects[0].getProjectName() === projectName){
+                projects = [];
             }
-            
+        }
+        else{
+            for(let i = 0; i < projects.length; i++){
+                if(projects[i].getProjectName() === projectName){
+                    projects.splice(i, 1);
+                    return;
+                }
+                
+            }
         }
     }
     

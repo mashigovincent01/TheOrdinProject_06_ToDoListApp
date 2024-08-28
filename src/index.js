@@ -6,37 +6,29 @@ import taskCard from './taskCard';
 import projectCard from './projectCard';
 import toDoListStorage from './toDoListStorage';
 import {updateProjects, updateTasks} from './update';
+import {newProjectDialog, newTaskDialog} from './dialog';
 
 
 const storage = toDoListStorage();
-const newProject = document.querySelector("#new-project");
-const addProjectDialog = document.querySelector("#add-project-dialog");
+
 const tasks = document.querySelector("#tasks");
 const projects = document.querySelector("#projects");
 initialization();
 function initialization(){
   let todolist = storage.getToDoList();
+  
+  if(todolist.getProjects().length === 0){
+    todolist.addProject("Default");
+  }
   updateProjects(todolist);
+  storage.updateToDoList(todolist);
+  newProjectDialog();
+  newTaskDialog();
   updateTasks(todolist, todolist.getProjects()[0].getProjectName())
 }
 
 
-function handleNewProject(){
-  addProjectDialog.showModal();
-  const addProjectButton = document.querySelector("#add-project-button");
-  addProjectButton.addEventListener("click", ()=>{
-    let projectName = document.querySelector("#project-name").value;
-    if(projectName !== ""){
-      const myTodoList = storage.getToDoList()
-      myTodoList.addProject(projectName);
-      storage.updateToDoList(myTodoList);
-      updateProjects(myTodoList);
-      myTodoList.printProjects();
-      addProjectDialog.close();
-    }
-  });
-}
-newProject.addEventListener("click", handleNewProject);
+
 
 // const myProject = project("school");
 

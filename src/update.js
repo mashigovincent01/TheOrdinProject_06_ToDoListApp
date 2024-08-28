@@ -23,7 +23,7 @@ function updateEditIcons(){
     editIcons.forEach((icon)=>{
         icon.addEventListener("click", (e)=>{
             
-            alert("Hello world" + " " + e.currentTarget.id);
+            //alert("Hello world" + " " + e.currentTarget.id);
             
         });
     });
@@ -44,8 +44,22 @@ function updateDeleteProjectIcons(){
     console.log(deleteProjectIcons);
     deleteProjectIcons.forEach((icon)=>{
         icon.addEventListener("click", (e)=>{
-            
-            alert("Hello world" + " " + e.currentTarget.id);
+            const  index  = parseInt(e.currentTarget.id.match(/\d+/)[0], 10);
+            //alert(index);
+            const mytodolist = storage.getToDoList();
+            const projectName = mytodolist.getProjects()[index].getProjectName();
+            mytodolist.removeProject(projectName);
+           // console.log("HELLO ",mytodolist.getProjects()[0].getProjectName());
+           // console.log(`length = ${mytodolist.getProjects().length}`)
+            // if(mytodolist.getProjects().length === 0){
+            //     storage.updateToDoList(mytodolist);
+            //    // console.log(mytodolist.getProjects());
+            //     mytodolist.addProject("Default");
+            // }
+            updateProjects(mytodolist);
+            storage.updateToDoList(mytodolist);
+            //updateTasks(mytodolist, projectName)
+            //alert("Hello world" + " " + e.currentTarget.id);
             
         });
     });
@@ -69,9 +83,11 @@ function updateDisplayProjectIcons(){
 }
 
 const updateProjects = (todoList)=>{
+    console.log("HELLO WORLD")
+
     projects.innerHTML = "";
     const myProjects = todoList.getProjects();
-
+    console.log(myProjects);
     for(let i = 0; i < myProjects.length; i++){
         projects.appendChild(projectCard(myProjects[i], i));
     }
