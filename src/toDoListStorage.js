@@ -14,7 +14,7 @@ const toDoListStorage = () => {
                 //console.log("PROJECT NAME " + projectData.name)
                 const newProject = project(projectData.name);
                 mytoDoList.addProject(projectData.name);
-                console.log(projectData.tasks);
+                //console.log(projectData.tasks);
                 projectData.tasks.forEach(taskData => {
                     const newTask = task(
                         taskData.title, 
@@ -32,13 +32,13 @@ const toDoListStorage = () => {
             mytoDoList = toDoList();
         }
 
-        console.log("GET TODOLIST");
-        mytoDoList.printProjects();
+        //console.log("GET TODOLIST");
+       // mytoDoList.printProjects();
         return mytoDoList;
     };
 
     const updateToDoList = (otherTodoList) => {
-        console.log("OTHER TO DO LIST");
+        //console.log("OTHER TO DO LIST");
         const projectsData = otherTodoList.getProjects().map(proj => ({
             name: proj.getProjectName(),
             tasks: proj.getTasks().map(task => ({
