@@ -1,7 +1,7 @@
 import toDoListStorage from "./toDoListStorage";
 import {updateProjects, updateTasks} from './update';
 
-
+import task from "./task";
 const dialog = document.querySelector("#dialog");
 const storage = toDoListStorage();
 const projectHeader = document.querySelector("#project-header");
@@ -35,7 +35,7 @@ function handleNewTask(){
 
            <fieldset>
             <label for="description">Description</label>
-           <input type="text" name="description" id="">
+           <input type="text" name="description" id="description">
            </fieldset>
            <fieldset>
             <label for="date">Date</label>
@@ -49,7 +49,15 @@ function handleNewTask(){
     newTaskButton.addEventListener("click", ()=>{
         let projectName = projectHeader.textContent;
         alert(projectName);
-      
+        const title = document.getElementById("title").value.trim();
+        const description = document.getElementById("description").value.trim();
+        const date = document.getElementById("date").value;
+        if(title !== "" && description !== "" && date !== ""){
+          const myTodoList = storage.getToDoList();
+          myTodoList.addTask(projectName, task(title, description, new Date(date), false));
+          storage.updateToDoList(myTodoList);
+          updateTasks(myTodoList, projectName);
+        }
         dialog.close();
       
     });
