@@ -49,7 +49,7 @@ function handleNewTask(){
     const newTaskButton = document.querySelector("#new-task-button");
     newTaskButton.addEventListener("click", ()=>{
         let projectName = projectHeader.textContent;
-        alert(projectName);
+        //alert(projectName);
         const title = document.getElementById("title").value.trim();
         const description = document.getElementById("description").value.trim();
         const date = document.getElementById("date").value;

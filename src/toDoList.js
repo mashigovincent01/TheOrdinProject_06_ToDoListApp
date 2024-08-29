@@ -56,7 +56,7 @@ const toDoList = ()=>{
     const printProjects =()=>{
         projects.forEach((project)=>{
             console.log("#############################################");
-            project.printTasks();
+            //project.printTasks();
             console.log("##############################################");
         });
     }
