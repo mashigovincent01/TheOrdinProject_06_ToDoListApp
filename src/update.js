@@ -55,13 +55,13 @@ function updateDeleteProjectIcons(){
             const mytodolist = storage.getToDoList();
             const projectName = mytodolist.getProjects()[index].getProjectName();
             mytodolist.removeProject(projectName);
-           // console.log("HELLO ",mytodolist.getProjects()[0].getProjectName());
-           // console.log(`length = ${mytodolist.getProjects().length}`)
-            // if(mytodolist.getProjects().length === 0){
-            //     storage.updateToDoList(mytodolist);
-            //    // console.log(mytodolist.getProjects());
-            //     mytodolist.addProject("Default");
-            // }
+           if(mytodolist.getProjects().length === 0){
+                projectHeader.innerHTML = "";
+           }
+           else{
+            projectHeader.innerHTML = mytodolist.getProjects()[0].getProjectName();
+                updateTasks(mytodolist, mytodolist.getProjects()[0].getProjectName());
+           }
             updateProjects(mytodolist);
             storage.updateToDoList(mytodolist);
             //updateTasks(mytodolist, projectName)
