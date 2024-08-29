@@ -33,8 +33,14 @@ function updateDeleteIcons(){
     console.log(deleteIcons);
     deleteIcons.forEach((icon)=>{
         icon.addEventListener("click", (e)=>{
-            
-            alert("Hello world" + " " + e.currentTarget.id);
+            const  index  = parseInt(e.currentTarget.id.match(/\d+/)[0], 10);
+
+            const projectName = projectHeader.textContent;
+            //alert("Hello world" + " " + index + " " + projectName );
+            const mytodolist = storage.getToDoList();
+            mytodolist.removeTask(projectName, index);
+            updateTasks(mytodolist, projectName);
+            storage.updateToDoList(mytodolist);
             
         });
     });
