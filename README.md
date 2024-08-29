@@ -3,7 +3,7 @@
 ## Introduction
 
 This project demonstrates the implementation of a dynamic todo list application. It ties together various techniques learned throughout the course, including object creation, project management, and data persistence. The application features a clean user interface, robust functionality, and localStorage integration to ensure data persistence across sessions.
-##Live preview
+## Live preview
 <a href="https://mashigovincent01.github.io/TheOrdinProject_06_ToDoListApp/">Click here </a>
 ## Features
 
