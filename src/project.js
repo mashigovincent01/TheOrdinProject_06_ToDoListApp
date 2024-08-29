@@ -20,6 +20,23 @@ const project = (name)=>{
         }
         
     }
+    const sortTasks = () => {
+        tasks.sort((task1, task2) => {
+            // Compare task dates and sort them in ascending order
+            if (isAfter(task1.getDate(), task2.getDate())) {
+                return 1; // task1 comes after task2
+            } else if (isAfter(task2.getDate(), task1.getDate())) {
+                return -1; // task1 comes before task2
+            } else {
+                return 0; // dates are equal
+            }
+        });
+    };
+
+    const updateTask = (othertask, index) => {
+        tasks[index] = othertask;
+        sortTasks();
+    }
     const printTasks = ()=>{
         console.log(projectName);
         tasks.forEach((task)=>{
@@ -32,14 +49,17 @@ const project = (name)=>{
         }
         tasks.splice(index, 1);
     }
+    
 
     
     return {
+        sortTasks,
         getTasks,
         addTask,
         printTasks,
         removeTask,
         getProjectName,
+        updateTask
         
     }
 }

@@ -1,42 +1,57 @@
 body{
     margin: 0;
+    min-width: 550px;
 }
 
 *{
     box-sizing: border-box;
+    font-family:"Roboto", sans-serif;
 }
 
 .display-project{
     display: flex;
-    gap: 20px;
+    margin-left: 10px;
+    gap: 10px;
 }
 header{
-    background-color: blue;
+    background-color: #1A4870;
+    color: #F3F3F3;
     height: 100px;
     display: flex;
     align-items: center;
     padding-left: 20px;
+    /* color: white; */
+    border-bottom: solid black 1px;
 }
 footer{
-    background-color: grey;
+    /* background-color: #1A4870; */
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: solid black 1px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    gap: 20px;
+    /* color: white; */
 }
 #side-bar{
-    background-color: orange;
+    background-color: #F3F3F3;
+    padding-right: 5px;
 }
 #projects div:hover{
     cursor: pointer;
     
 }
+
 .task{
-    background-color: lightgray;
+    background-color: #EEEEEE;
+    color: black;
     width: 300px;
     border-radius: 19px;
     
 }
+
 .task-header{
     display: flex;
     align-items: center;
@@ -48,17 +63,18 @@ footer{
 }
 #project{
     padding: 20px;
+    background-color: #DADADA;
 }
 main{
     display: grid;
     min-height: calc(100vh - 150px);
-    grid-template-columns: 200px auto;
+    grid-template-columns: 210px auto;
 
 }
-#projects div{
+/* #projects div{
     display: flex;
     justify-content: space-around;
-}
+} */
 
 #new-project, #new-task{
     border-radius: 100%;
@@ -116,3 +132,62 @@ main{
     flex-wrap: wrap;
     gap: 20px;
 }
+.project h3{
+    font-size: 17px;
+}
+
+h1{
+    font-size: 3rem;
+}
+#side-bar h2{
+    text-align: center;
+}
+.project{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+.delete-project{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+dialog{
+    border-radius: 19px;
+}
+.task h3{
+    font-size: 25px;
+
+}
+.task h4{
+    font-size: 18px;
+}
+.task p{
+    font-size: 17px;
+}
+label{
+    text-transform: uppercase;
+    display: block;
+    font-weight: bold;
+}
+#new-task:hover{
+    cursor: pointer;
+}
+a svg {
+    display: inline-block; /* To make the element fit around its content */
+    transition: transform 2s ease; /* Smooth transition for the rotation */
+  }
+  
+  a svg:hover {
+    transform: rotate(360deg); /* Rotate the element 360 degrees */
+  }
+
+  dialog .button{
+    border-radius: 12px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  fieldset{
+    border: none;
+  }

@@ -1,6 +1,7 @@
 import projectCard from './projectCard';
 import toDoListStorage from './toDoListStorage';
 import taskCard from './taskCard';
+import task from './task';
 
 const tasks = document.querySelector("#tasks");
 const projects = document.querySelector("#projects");
@@ -23,11 +24,50 @@ function updateEditIcons(){
     editIcons.forEach((icon)=>{
         icon.addEventListener("click", (e)=>{
             
-            //alert("Hello world" + " " + e.currentTarget.id);
+            alert("Hello world" + " " + e.currentTarget.id);
+            const  index  = parseInt(e.currentTarget.id.match(/\d+/)[0], 10);
+            let projectName = projectHeader.textContent;
+            const taskinfo = storage.getToDoList().getTasks(projectName)[index];
+            const dialog = document.querySelector("#dialog");
+            dialog.innerHTML = `
+        <h2>New Task</h2>
+                <fieldset>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" value="${taskinfo.getTitle()}">
+                </fieldset>
+
+                <fieldset>
+                    <label for="description">Description</label>
+                <textarea name="description" id="description" rows="4" cols="50">${taskinfo.getDescription()}</textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" value="${taskinfo.getDate().toISOString().substring(0, 10)}">
+
+                </fieldset>
+                <input type="button" class="button" id="edit-task-button" value="edit-task">
+                `;
+                dialog.showModal();
+            const editTaskButton = document.querySelector("#edit-task-button");
+            editTaskButton.addEventListener("click", ()=>{
+                const title = document.getElementById("title").value.trim();
+                const description = document.getElementById("description").value.trim();
+                const date = document.getElementById("date").value;
+                if(title !== "" && description !== "" && date !== ""){
+                  const myTodoList = storage.getToDoList();
+                  myTodoList.updateTask(projectName, task(title, description, new Date(date), false), index);
+                  storage.updateToDoList(myTodoList);
+                  updateTasks(myTodoList, projectName);
+                }
+                dialog.close();
+            })
+                
             
         });
     });
 }
+
+
 function updateDeleteIcons(){
     const deleteIcons = document.querySelectorAll(".delete-icon");
     console.log(deleteIcons);

@@ -35,14 +35,15 @@ function handleNewTask(){
 
            <fieldset>
             <label for="description">Description</label>
-           <input type="text" name="description" id="description">
+           
+           <textarea name="description" id="description" rows="4" cols="30"></textarea>
            </fieldset>
            <fieldset>
             <label for="date">Date</label>
             <input type="date" name="date" id="date">
 
            </fieldset>
-           <input type="button" id="new-task-button" value="Add Task">
+           <input type="button" class="button" id="new-task-button" value="Add Task">
            `;
   dialog.showModal();
     const newTaskButton = document.querySelector("#new-task-button");

@@ -19,6 +19,15 @@ const toDoList = ()=>{
             }
         }
     }
+    const updateTask = (projectName, task, index)=>{
+        for(let i = 0; i < projects.length; i++){
+            if(projects[i].getProjectName() === projectName){
+                projects[i].updateTask(task, index);
+                return;
+            }
+        }
+    }
+    
     const exists = (projectName)=>{
         for(let i = 0; i < projects.length; i++){
             if(projects[i].getProjectName() === projectName){
@@ -27,10 +36,10 @@ const toDoList = ()=>{
         }
         return false;
     }
-    const addTask = (projectName, task)=>{
+    const addTask = (projectName, otherTask)=>{
         for(let i = 0; i < projects.length; i++){
             if(projects[i].getProjectName() === projectName){
-                projects[i].addTask(task);
+                projects[i].addTask(otherTask);
             }
         }
     }
@@ -76,6 +85,7 @@ const toDoList = ()=>{
         addTask,
         removeTask,
         removeProject,
+        updateTask
     }
 }
 
